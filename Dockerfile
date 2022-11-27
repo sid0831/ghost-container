@@ -12,7 +12,7 @@ LABEL org.opencontainers.image.authors="https://bitnami.com/contact; flavoured b
 
 ENV HOME="/" \
     OS_ARCH="${TARGETARCH:-amd64}" \
-    OS_FLAVOUR="ubuntu-22.04" \
+    OS_FLAVOUR="debian-11" \
     OS_NAME="linux"
 
 COPY prebuildfs /
