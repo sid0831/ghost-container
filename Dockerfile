@@ -4,7 +4,7 @@ ARG TARGETARCH
 
 LABEL org.opencontainers.image.authors="https://bitnami.com/contact; flavoured by https://sidlibrary.org" \
       org.opencontainers.image.description="Application packaged by Bitnami; flavoured by Sidney Jeong" \
-      org.opencontainers.image.ref.name="ghost-5.24.0-bullseye-r3" \
+      org.opencontainers.image.ref.name="ghost-5.24.0-bullseye-r4" \
       org.opencontainers.image.source="https://github.com/bitnami/containers/tree/main/bitnami/ghost" \
       org.opencontainers.image.title="ghost" \
       org.opencontainers.image.vendor="VMware, Inc.; Sidney Jeong" \
