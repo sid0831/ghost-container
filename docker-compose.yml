@@ -1,7 +1,7 @@
 version: '2'
 services:
   mysql:
-    image: docker.io/bitnami/mysql:8.0
+    image: docker.io/bitnami/mysql:8
     ports:
       - '9918:3306'
     volumes:
@@ -12,7 +12,7 @@ services:
       - MYSQL_USER=bn_ghost
       - MYSQL_DATABASE=bitnami_ghost
   ghost:
-    image: ghcr.io/sid0831/ghost-container:5.24.0-bullseye-r4
+    image: ghcr.io/sid0831/ghost-container:latest
     ports:
       - '8080:2368'
     volumes:

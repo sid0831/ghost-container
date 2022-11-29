@@ -4,11 +4,11 @@ ARG TARGETARCH
 
 LABEL org.opencontainers.image.authors="https://bitnami.com/contact; flavoured by https://sidlibrary.org" \
       org.opencontainers.image.description="Application packaged by Bitnami; flavoured by Sidney Jeong" \
-      org.opencontainers.image.ref.name="ghost-5.24.0-bullseye-r4" \
-      org.opencontainers.image.source="https://github.com/bitnami/containers/tree/main/bitnami/ghost" \
+      org.opencontainers.image.ref.name="ghost-5.24.2-bullseye-r0" \
+      org.opencontainers.image.source="https://github.com/sid0831/ghost-container" \
       org.opencontainers.image.title="ghost" \
       org.opencontainers.image.vendor="VMware, Inc.; Sidney Jeong" \
-      org.opencontainers.image.version="5.24.0"
+      org.opencontainers.image.version="5.24.2"
 
 ENV HOME="/" \
     OS_ARCH="${TARGETARCH:-amd64}" \
@@ -42,7 +42,7 @@ RUN chmod g+rwX /opt/bitnami
 COPY rootfs /
 RUN /opt/bitnami/scripts/ghost/postunpack.sh
 RUN /opt/bitnami/scripts/mysql-client/postunpack.sh
-ENV APP_VERSION="5.24.0" \
+ENV APP_VERSION="5.24.2" \
     BITNAMI_APP_NAME="ghost" \
     PATH="/opt/bitnami/python/bin:/opt/bitnami/node/bin:/opt/bitnami/mysql/bin:/opt/bitnami/common/bin:/opt/bitnami/ghost/bin:$PATH"
 EXPOSE 2368 3000
