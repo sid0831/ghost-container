@@ -4,11 +4,11 @@ ARG TARGETARCH
 
 LABEL org.opencontainers.image.authors="https://bitnami.com/contact; flavoured by https://sidlibrary.org" \
       org.opencontainers.image.description="Application packaged by Bitnami; flavoured by Sidney Jeong" \
-      org.opencontainers.image.ref.name="ghost-5.26.3-bullseye-r0" \
+      org.opencontainers.image.ref.name="ghost-5.28.0-bullseye-r0" \
       org.opencontainers.image.source="https://github.com/sid0831/ghost-container" \
       org.opencontainers.image.title="ghost" \
       org.opencontainers.image.vendor="VMware, Inc.; Sidney Jeong" \
-      org.opencontainers.image.version="5.26.3"
+      org.opencontainers.image.version="5.28.0"
 
 ENV HOME="/" \
     OS_ARCH="${TARGETARCH:-amd64}" \
@@ -35,14 +35,14 @@ RUN mkdir -p /tmp/bitnami/pkg/cache/ && cd /tmp/bitnami/pkg/cache/ && \
       tar -zxf "${COMPONENT}.tar.gz" -C /opt/bitnami --strip-components=2 --no-same-owner --wildcards '*/files' && \
       rm -rf "${COMPONENT}".tar.gz{,.sha256} ; \
     done
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get --autoremove full-upgrade -y && \
+RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get --autoremove full-upgrade -y --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 RUN chmod g+rwX /opt/bitnami
 
 COPY rootfs /
 RUN /opt/bitnami/scripts/ghost/postunpack.sh
 RUN /opt/bitnami/scripts/mysql-client/postunpack.sh
-ENV APP_VERSION="5.26.3" \
+ENV APP_VERSION="5.28.0" \
     BITNAMI_APP_NAME="ghost" \
     PATH="/opt/bitnami/python/bin:/opt/bitnami/node/bin:/opt/bitnami/mysql/bin:/opt/bitnami/common/bin:/opt/bitnami/ghost/bin:$PATH"
 EXPOSE 2368 3000
